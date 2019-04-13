@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +22,12 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     public static LinearLayout linear_layout;
     public static ArrayList<String> fixtures;
     static int completed = 0;
-    public static ArrayList<TextView> fixture_views;
+    public static ArrayList<GridLayout> fixture_views;
+    public static ArrayList<String> homeTeams;
+    public static ArrayList<String> awayTeams;
+    public static ArrayList<String> matchDate;
+    public static ArrayList<String> homePredict;
+    public static ArrayList<String> awayPredict;
     Spinner dropdown;
 
     TextView t;
@@ -33,6 +40,12 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         setSupportActionBar(toolbar);
 
         fixtures = new ArrayList<String>();
+        homeTeams = new ArrayList<String>();
+        awayTeams = new ArrayList<String>();
+        matchDate = new ArrayList<String>();
+        homePredict = new ArrayList<String>();
+        awayPredict = new ArrayList<String>();
+
         Bundle extras = getIntent().getExtras();
         String s = new String(extras.getString("Name"));
         TextView login = findViewById(R.id.login_title);
@@ -47,24 +60,24 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         dropdown.setOnItemSelectedListener(this);
 
 
-        fixture_views = new ArrayList<TextView>();
-        TextView f1 = findViewById(R.id.fixture1);
-        TextView f2 = findViewById(R.id.fixture2);
-        TextView f3 = findViewById(R.id.fixture3);
-        TextView f4 = findViewById(R.id.fixture4);
-        TextView f5 = findViewById(R.id.fixture5);
-        TextView f6 = findViewById(R.id.fixture6);
-        TextView f7 = findViewById(R.id.fixture7);
-        TextView f8 = findViewById(R.id.fixture8);
-        TextView f9 = findViewById(R.id.fixture9);
-        TextView f10 = findViewById(R.id.fixture10);
-        TextView f11 = findViewById(R.id.fixture11);
-        TextView f12 = findViewById(R.id.fixture12);
-        TextView f13 = findViewById(R.id.fixture13);
-        TextView f14 = findViewById(R.id.fixture14);
-        TextView f15 = findViewById(R.id.fixture15);
+        fixture_views = new ArrayList<GridLayout>();
+        GridLayout f1 = findViewById(R.id.fixture1);
+        GridLayout f2 = findViewById(R.id.fixture2);
+        GridLayout f3 = findViewById(R.id.fixture3);
+        GridLayout f4 = findViewById(R.id.fixture4);
+        GridLayout f5 = findViewById(R.id.fixture5);
+        GridLayout f6 = findViewById(R.id.fixture6);
+        GridLayout f7 = findViewById(R.id.fixture7);
+        GridLayout f8 = findViewById(R.id.fixture8);
+        GridLayout f9 = findViewById(R.id.fixture9);
+        GridLayout f10 = findViewById(R.id.fixture10);
+        GridLayout f11 = findViewById(R.id.fixture11);
+        GridLayout f12 = findViewById(R.id.fixture12);
+        GridLayout f13 = findViewById(R.id.fixture13);
+        GridLayout f14 = findViewById(R.id.fixture14);
+        GridLayout f15 = findViewById(R.id.fixture15);
 
-        List<TextView> viewsList = Arrays.asList(f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15);
+        List<GridLayout> viewsList = Arrays.asList(f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15);
         fixture_views.addAll(viewsList);
 
         handler = new Handler();
@@ -108,7 +121,24 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         handler.post(new Runnable(){
             public void run() {
                 for(int i = 0; i < Fixtures.fixtures.size(); i++){
-                    fixture_views.get(i).setText(Fixtures.fixtures.get(i));
+                    TextView tmpHomeTeam = (TextView) fixture_views.get(i).getChildAt(0);
+                    tmpHomeTeam.setText(Fixtures.homeTeams.get(i));
+
+                    TextView tmpScore = (TextView) fixture_views.get(i).getChildAt(1);
+                    tmpScore.setText("0 - 0");
+
+                    TextView tmpAwayTeam = (TextView) fixture_views.get(i).getChildAt(2);
+                    tmpAwayTeam.setText(Fixtures.awayTeams.get(i));
+
+                    TextView tmpDate = (TextView) fixture_views.get(i).getChildAt(4);
+                    tmpDate.setText(Fixtures.matchDate.get(i));
+
+                    TextView tmpHomePredict = (TextView) fixture_views.get(i).getChildAt(6);
+                    tmpHomePredict.setText(Fixtures.homePredict.get(i));
+
+                    TextView tmpAwayPredict = (TextView) fixture_views.get(i).getChildAt(8);
+                    tmpAwayPredict.setText(Fixtures.awayPredict.get(i));
+
                 }
             }
         });
@@ -116,6 +146,11 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
 
     private void empty_fixtures(){
         Fixtures.fixtures = new ArrayList<String>();
+        Fixtures.homeTeams = new ArrayList<String>();
+        Fixtures.awayTeams = new ArrayList<String>();
+        Fixtures.matchDate = new ArrayList<String>();
+        Fixtures.homePredict = new ArrayList<String>();
+        Fixtures.awayPredict = new ArrayList<String>();
     }
 
     @Override
@@ -143,7 +178,6 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

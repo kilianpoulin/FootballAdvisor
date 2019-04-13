@@ -48,13 +48,11 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
             JSONArray JA = jsondata.getJSONArray("events");
             for(int i = 0 ;i <JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed = JO.get("strEvent") + "\n" +  "Matchday " + JO.get("intRound") + "\n\n" + JO.get("strDate") + " at " + JO.get("strTime") + "\n";
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    singleParsed = singleParsed + Html.fromHtml("<table width='100%'><tr><td width='50%'>Home</td><td width='50%'>Away</td></tr></table>", Html.FROM_HTML_MODE_COMPACT);
-                } else {
-                    singleParsed = singleParsed + Html.fromHtml("<table width='100%'><tr><td width='50%'>Home</td><td width='50%'>Away</td></tr></table>");
-                }
-
+                Fixtures.homeTeams.add(JO.get("strHomeTeam") + " ");
+                Fixtures.awayTeams.add(JO.get("strAwayTeam") + " ");
+                Fixtures.matchDate.add("Matchday " + JO.get("intRound") + "\n" + JO.get("strDate") + " at " + JO.get("strTime"));
+                Fixtures.homePredict.add("Prediction \n 52%");
+                Fixtures.awayPredict.add("Prediction \n 48%");
                 Fixtures.fixtures.add(singleParsed);
             }
 

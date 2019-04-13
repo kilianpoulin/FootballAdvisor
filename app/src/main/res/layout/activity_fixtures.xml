@@ -10,7 +10,6 @@
         android:id="@+id/app_bar"
         layout="@layout/action_bar"></include>
 
-
     <TextView
         android:id="@+id/login_title"
         android:layout_width="166dp"
@@ -22,6 +21,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Spinner
         android:id="@+id/spinner1"
@@ -42,190 +42,1303 @@
 
         <LinearLayout
             android:id="@+id/linear_layout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/fixture6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/fixture15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
-
-            <TextView
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fixture1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
 
-            <TextView
-                android:id="@+id/fixture14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                <!-- Row 1 -->
 
-            <TextView
-                android:id="@+id/fixture11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team1"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/fixture9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
 
-            <TextView
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team1"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home1"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away1"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fixture2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
 
-            <TextView
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team2"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team2"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home2"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away2"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fixture3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
 
-            <TextView
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team3"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score3"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team3"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date3"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home3"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away3"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team4"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score4"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team4"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date4"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home4"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away4"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team5"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score5"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team5"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date5"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home5"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away5"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team6"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score6"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team6"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date6"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home6"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away6"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team7"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score7"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team7"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date7"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home7"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away7"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team8"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score8"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team8"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date8"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home8"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away8"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team9"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score9"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team9"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date9"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home9"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away9"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team10"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score10"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team10"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date10"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home10"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away10"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team11"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score11"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team11"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date11"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home11"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away11"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fixture12"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/view_border"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team12"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score12"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team12"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date12"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home12"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away12"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team13"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score13"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team13"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date13"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home13"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away13"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture14"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team14"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score14"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team14"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date14"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home14"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away14"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fixture15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_border"
+                android:columnCount="3"
+                android:orientation="horizontal"
+                android:rowCount="3">
+
+                <!-- Row 1 -->
+
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/home_team15"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/score15"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/away_team15"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Row 2 -->
+
+                <!-- Column 1 -->
+                <TextView />
+
+                <!-- Column 2 -->
+                <TextView
+                    android:id="@+id/date15"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 3 -->
+                <TextView />
+
+                <!-- Row 3 -->
+                <!-- Column 1 -->
+                <TextView
+                    android:id="@+id/predict_home15"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+
+                <!-- Column 2 -->
+                <TextView android:layout_gravity="fill_horizontal" />
+
+                <!-- Column 3 -->
+                <TextView
+                    android:id="@+id/predict_away15"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp"
+                    android:textStyle="normal" />
+            </GridLayout>
+
+
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="212dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:text="Choose a competition"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
