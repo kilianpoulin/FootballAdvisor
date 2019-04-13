@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/action_bar"></include>
+
+
 </android.support.constraint.ConstraintLayout>

@@ -1,29 +1,17 @@
 package i.myapplication3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.widget.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import android.app.ProgressDialog;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +29,9 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fixtures);
+        android.support.v7.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
         fixtures = new ArrayList<String>();
         Bundle extras = getIntent().getExtras();
         String s = new String(extras.getString("Name"));
@@ -151,5 +142,26 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.profile_btn:
+                Intent broadcast = new Intent(Fixtures.this, Profile.class);
+                startActivity(broadcast);
+                break;
+
+            default:
+                Message.message(getApplicationContext(), "An error occurred");
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

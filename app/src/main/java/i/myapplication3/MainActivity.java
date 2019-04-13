@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
             default:
                 Message.message(getApplicationContext(), "An error occurred");
-
         }
         return super.onOptionsItemSelected(item);
     }
