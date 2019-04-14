@@ -28,6 +28,9 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     public static ArrayList<String> matchDate;
     public static ArrayList<String> homePredict;
     public static ArrayList<String> awayPredict;
+    public static ArrayList<String> homeTeamsID;
+    public static ArrayList<String> awayTeamsID;
+
     Spinner dropdown;
 
     TextView t;
@@ -45,6 +48,8 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         matchDate = new ArrayList<String>();
         homePredict = new ArrayList<String>();
         awayPredict = new ArrayList<String>();
+        awayTeamsID = new ArrayList<String>();
+        homeTeamsID = new ArrayList<String>();
 
         Bundle extras = getIntent().getExtras();
         String s = new String(extras.getString("Name"));
@@ -117,18 +122,30 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         t2.start();
     }
 
+    public void teamInfo(View view){
+        TextView text = (TextView) view;
+        Integer teamID = (Integer) text.getTag();
+
+        Intent broadcast = new Intent(Fixtures.this, Team.class);
+        broadcast.putExtra("Team", text.getText().toString() + "");
+        broadcast.putExtra("TeamID", teamID.toString() + "");
+        startActivity(broadcast);
+    }
+
     public void display_fixtures(){
         handler.post(new Runnable(){
             public void run() {
                 for(int i = 0; i < Fixtures.fixtures.size(); i++){
                     TextView tmpHomeTeam = (TextView) fixture_views.get(i).getChildAt(0);
                     tmpHomeTeam.setText(Fixtures.homeTeams.get(i));
+                    tmpHomeTeam.setTag(Integer.valueOf(Fixtures.homeTeamsID.get(i)));
 
                     TextView tmpScore = (TextView) fixture_views.get(i).getChildAt(1);
                     tmpScore.setText("0 - 0");
 
                     TextView tmpAwayTeam = (TextView) fixture_views.get(i).getChildAt(2);
                     tmpAwayTeam.setText(Fixtures.awayTeams.get(i));
+                    tmpHomeTeam.setTag(Integer.valueOf(Fixtures.awayTeamsID.get(i)));
 
                     TextView tmpDate = (TextView) fixture_views.get(i).getChildAt(4);
                     tmpDate.setText(Fixtures.matchDate.get(i));

@@ -65,7 +65,9 @@
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:onClick="teamInfo"
+                    android:clickable="true" />
 
                 <!-- Column 2 -->
                 <TextView

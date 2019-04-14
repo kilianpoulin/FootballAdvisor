@@ -50,10 +50,12 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
                 JSONObject JO = (JSONObject) JA.get(i);
                 Fixtures.homeTeams.add(JO.get("strHomeTeam") + " ");
                 Fixtures.awayTeams.add(JO.get("strAwayTeam") + " ");
-                Fixtures.matchDate.add("Matchday " + JO.get("intRound") + "\n" + JO.get("strDate") + " at " + JO.get("strTime"));
+                Fixtures.matchDate.add("Matchday " + JO.get("intRound") + "\n" + JO.get("strDate") + "\n" + JO.get("strTime"));
                 Fixtures.homePredict.add("Prediction \n 52%");
                 Fixtures.awayPredict.add("Prediction \n 48%");
                 Fixtures.fixtures.add(singleParsed);
+                Fixtures.homeTeamsID.add(JO.get("idHomeTeam") + "");
+                Fixtures.awayTeamsID.add(JO.get("idAwayTeam") + "");
             }
 
         } catch (MalformedURLException e) {
