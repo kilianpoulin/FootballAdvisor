@@ -4,11 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText Name, Pass;
@@ -37,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_btn:
-                Intent broadcast = new Intent(MainActivity.this, Profile.class);
+                Intent broadcast = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(broadcast);
+                break;
+
+            case R.id.fixtures_btn:
+                Intent broadcast2 = new Intent(MainActivity.this, FixturesActivity.class);
+                startActivity(broadcast2);
                 break;
 
             default:
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             String login_value = Name.getText().toString();
             Name.setText("");
             Pass.setText("");
-            Intent broadcast = new Intent(MainActivity.this, Fixtures.class);
+            Intent broadcast = new Intent(MainActivity.this, FixturesActivity.class);
             broadcast.putExtra("Name", login_value + "");
 
             startActivity(broadcast);

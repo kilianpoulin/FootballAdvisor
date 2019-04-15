@@ -6,4 +6,9 @@
         android:id="@+id/profile_btn"
         android:title="@string/profile_btn"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/fixtures_btn"
+        android:title="@string/fixtures_btn"
+        app:showAsAction="never"/>
 </menu>

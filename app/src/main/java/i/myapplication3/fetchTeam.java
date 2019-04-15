@@ -17,10 +17,10 @@ import java.net.URL;
 public class fetchTeam extends AsyncTask<Void,Void,Void> {
     String data ="";
     String singleParsed ="";
-    Integer teamID;
+    String teamID;
     String teamName;
 
-    public fetchTeam(String TteamName, Integer TteamID) {
+    public fetchTeam(String TteamName, String TteamID) {
         super();
         this.teamID = TteamID;
         this.teamName = TteamName;
@@ -31,11 +31,13 @@ public class fetchTeam extends AsyncTask<Void,Void,Void> {
 
         // team basic info
         try {
-            URL url = new URL("https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=" + teamName);
+            String url_string = "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=" + teamName;
+            URL url = new URL(url_string.replaceAll(" ", "%20"));
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
+
             while(line != null){
                 line = bufferedReader.readLine();
                 data = data + line;
@@ -46,17 +48,23 @@ public class fetchTeam extends AsyncTask<Void,Void,Void> {
             JSONArray JA = jsondata.getJSONArray("teams");
             for(int i = 0 ;i <JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
-                if(JO.get("idTeam") == teamID){
-                    Team.teamDetails = new TeamDetails(JO.get("strDescriptionEN").toString());
+                String tmpID = JO.get("idTeam").toString();
+                if(teamID.equals(tmpID)) {
+                    TeamActivity.teamDetails.setDescription(JO.get("strDescriptionEN").toString());
                     break;
                 }
             }
-
         } catch (MalformedURLException e) {
+
+            //TeamActivity.teamDetails = new TeamDetails("test1");
             e.printStackTrace();
         } catch (IOException e) {
+
+            //TeamActivity.teamDetails = new TeamDetails("test2");
             e.printStackTrace();
         } catch (JSONException e) {
+
+            //TeamActivity.teamDetails = new TeamDetails("test3");
             e.printStackTrace();
         }
 
@@ -76,32 +84,33 @@ public class fetchTeam extends AsyncTask<Void,Void,Void> {
             //events
             JSONObject jsondata = new JSONObject(data);
             JSONArray JA = jsondata.getJSONArray("results");
-            for(int i = 0 ;i <JA.length(); i++){
+            //JA.length()
+            for(int i = 0; i < JA.length(); i++){
+                //TeamActivity.lastResults.add(new MatchResult(JA.length() + "", "away", "win", 4, 0, "14-04-2019"));
                 JSONObject JO = (JSONObject) JA.get(i);
-                if(JO.get("idTeam") == teamID){
-                    Integer homeScore = (Integer) JO.get("intHomeScore");
-                    Integer awayScore = (Integer) JO.get("intAwayScore");
-                    String result = "";
-                    if(JO.get("strHomeTeam") == teamName){
-                        if(homeScore > awayScore){
-                            result = "Win";
-                        } else if(homeScore < awayScore){
-                            result = "Lost";
-                        }
-                    } else {
-                        if(awayScore > homeScore){
-                            result = "Win";
-                        } else if(awayScore < homeScore){
-                            result = "Lost";
-                        }
-                    }
-                    if(awayScore == homeScore){
-                        result = "Draw";
-                    }
 
-                    Team.lastResults.add(new MatchResult(JO.get("strHomeTeam").toString(), JO.get("strAwayTeam").toString(), result, homeScore, awayScore, JO.get("dateEvent").toString()));
-                    break;
+                Integer homeScore = Integer.parseInt(JO.get("intHomeScore").toString());
+                Integer awayScore = Integer.parseInt(JO.get("intAwayScore").toString());
+                String result = "";
+
+                String tmpHomeID = JO.get("idHomeTeam").toString();
+                if(teamID.equals(tmpHomeID)){
+                    if(homeScore > awayScore){
+                        result = "Win";
+                    } else if(homeScore < awayScore){
+                        result = "Lost";
+                    }
+                } else {
+                    if(awayScore > homeScore){
+                        result = "Win";
+                    } else if(awayScore < homeScore){
+                        result = "Lost";
+                    }
                 }
+                if(awayScore == homeScore){
+                    result = "Draw";
+                }
+                TeamActivity.lastResults.add(new MatchResult(JO.get("strHomeTeam").toString(), JO.get("strAwayTeam").toString(), result, homeScore, awayScore, JO.get("dateEvent").toString()));
             }
 
         } catch (MalformedURLException e) {
@@ -118,6 +127,6 @@ public class fetchTeam extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Fixtures.completed = 1;
+        TeamActivity.completed = 1;
     }
 }

@@ -1,8 +1,6 @@
 package i.myapplication3;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,13 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class FixturesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     public static LinearLayout linear_layout;
     public static ArrayList<String> fixtures;
     static int completed = 0;
@@ -30,7 +26,6 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     public static ArrayList<String> awayPredict;
     public static ArrayList<String> homeTeamsID;
     public static ArrayList<String> awayTeamsID;
-
     Spinner dropdown;
 
     TextView t;
@@ -41,7 +36,6 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         setContentView(R.layout.activity_fixtures);
         android.support.v7.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-
         fixtures = new ArrayList<String>();
         homeTeams = new ArrayList<String>();
         awayTeams = new ArrayList<String>();
@@ -89,14 +83,17 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
 
         linear_layout = findViewById(R.id.linear_layout);
 
+        // loading Ligue 1
+        get_fixtures(4328, 0);
+
     }
 
-    protected void get_fixtures(final Integer competitionID){
+    protected void get_fixtures(final Integer competitionID, final Integer ini){
+
         final Thread t1 = new Thread(new Runnable() {
             public void run() {
-                fetchData process = new fetchData(competitionID);
+                fetchData process = new fetchData(competitionID, ini);
                 process.execute();
-
             }
         });
         t1.start();
@@ -126,8 +123,8 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         TextView text = (TextView) view;
         Integer teamID = (Integer) text.getTag();
 
-        Intent broadcast = new Intent(Fixtures.this, Team.class);
-        broadcast.putExtra("Team", text.getText().toString() + "");
+        Intent broadcast = new Intent(FixturesActivity.this, TeamActivity.class);
+        broadcast.putExtra("TeamActivity", text.getText().toString() + "");
         broadcast.putExtra("TeamID", teamID.toString() + "");
         startActivity(broadcast);
     }
@@ -135,26 +132,26 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     public void display_fixtures(){
         handler.post(new Runnable(){
             public void run() {
-                for(int i = 0; i < Fixtures.fixtures.size(); i++){
+                for(int i = 0; i < FixturesActivity.fixtures.size(); i++){
                     TextView tmpHomeTeam = (TextView) fixture_views.get(i).getChildAt(0);
-                    tmpHomeTeam.setText(Fixtures.homeTeams.get(i));
-                    tmpHomeTeam.setTag(Integer.valueOf(Fixtures.homeTeamsID.get(i)));
+                    tmpHomeTeam.setText(FixturesActivity.homeTeams.get(i));
+                    tmpHomeTeam.setTag(Integer.valueOf(FixturesActivity.homeTeamsID.get(i)));
 
                     TextView tmpScore = (TextView) fixture_views.get(i).getChildAt(1);
                     tmpScore.setText("0 - 0");
 
                     TextView tmpAwayTeam = (TextView) fixture_views.get(i).getChildAt(2);
-                    tmpAwayTeam.setText(Fixtures.awayTeams.get(i));
-                    tmpHomeTeam.setTag(Integer.valueOf(Fixtures.awayTeamsID.get(i)));
+                    tmpAwayTeam.setText(FixturesActivity.awayTeams.get(i));
+                    tmpAwayTeam.setTag(Integer.valueOf(FixturesActivity.awayTeamsID.get(i)));
 
                     TextView tmpDate = (TextView) fixture_views.get(i).getChildAt(4);
-                    tmpDate.setText(Fixtures.matchDate.get(i));
+                    tmpDate.setText(FixturesActivity.matchDate.get(i));
 
                     TextView tmpHomePredict = (TextView) fixture_views.get(i).getChildAt(6);
-                    tmpHomePredict.setText(Fixtures.homePredict.get(i));
+                    tmpHomePredict.setText(FixturesActivity.homePredict.get(i));
 
                     TextView tmpAwayPredict = (TextView) fixture_views.get(i).getChildAt(8);
-                    tmpAwayPredict.setText(Fixtures.awayPredict.get(i));
+                    tmpAwayPredict.setText(FixturesActivity.awayPredict.get(i));
 
                 }
             }
@@ -162,12 +159,14 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     private void empty_fixtures(){
-        Fixtures.fixtures = new ArrayList<String>();
-        Fixtures.homeTeams = new ArrayList<String>();
-        Fixtures.awayTeams = new ArrayList<String>();
-        Fixtures.matchDate = new ArrayList<String>();
-        Fixtures.homePredict = new ArrayList<String>();
-        Fixtures.awayPredict = new ArrayList<String>();
+        FixturesActivity.fixtures = new ArrayList<String>();
+        FixturesActivity.homeTeams = new ArrayList<String>();
+        FixturesActivity.awayTeams = new ArrayList<String>();
+        FixturesActivity.matchDate = new ArrayList<String>();
+        FixturesActivity.homePredict = new ArrayList<String>();
+        FixturesActivity.awayPredict = new ArrayList<String>();
+        FixturesActivity.homeTeamsID = new ArrayList<String>();
+        FixturesActivity.awayTeamsID = new ArrayList<String>();
     }
 
     @Override
@@ -175,19 +174,19 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
         String mSelected = parent.getItemAtPosition(pos).toString();
         if(mSelected == "Ligue 1"){
             empty_fixtures();
-            get_fixtures(4334);
+            get_fixtures(4334, 1);
         } else if(mSelected == "Premier League"){
             empty_fixtures();
-            get_fixtures(4328);
+            get_fixtures(4328, 1);
         } else if(mSelected == "La Liga"){
             empty_fixtures();
-            get_fixtures(4335);
+            get_fixtures(4335, 1);
         } else if(mSelected == "Bundesliga"){
             empty_fixtures();
-            get_fixtures(4331);
+            get_fixtures(4331, 1);
         } else if(mSelected == "Serie A") {
             empty_fixtures();
-            get_fixtures(4332);
+            get_fixtures(4332, 1);
         }
     }
 
@@ -206,10 +205,13 @@ public class Fixtures extends AppCompatActivity implements AdapterView.OnItemSel
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.profile_btn:
-                Intent broadcast = new Intent(Fixtures.this, Profile.class);
+                Intent broadcast = new Intent(FixturesActivity.this, ProfileActivity.class);
                 startActivity(broadcast);
                 break;
-
+            case R.id.fixtures_btn:
+                Intent broadcast2 = new Intent(FixturesActivity.this, FixturesActivity.class);
+                startActivity(broadcast2);
+                break;
             default:
                 Message.message(getApplicationContext(), "An error occurred");
         }
